@@ -1,6 +1,6 @@
 # DataEncryptionStandard
 
-## First commit
+## branch Release naive_DES
 Test Summary:             | Pass  Total
 DataEncryptionStandard.jl |    6      6
 Test.DefaultTestSet("DataEncryptionStandard.jl", Any[], 6, false)
