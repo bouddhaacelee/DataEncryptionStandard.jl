@@ -1,12 +1,7 @@
 using DataEncryptionStandard
 using Test
 
-function fromStringtoBits(s)
-    key_from_string = bitstring(parse(UInt64, s, base=16))
-    return convert(Array{Bool}, split(key_from_string, "") .== "1")
-end
-
-@testset "DataEncryptionStandard.jl" begin
+@testset "DataEncryptionStandard.jel" begin
     # Write your own tests here.
     #= cast
     key:       0e329232ea6d0d73

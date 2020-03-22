@@ -2,10 +2,69 @@ module DataEncryptionStandard
     
     include("sboxes.jl")
 	include("permutations.jl")
-
     
-    export compute
-    function compute(msg::Array{Bool,1}, key::Array{Bool,1})
+	export compute, fromStringtoBits, randomUInt64toBits
+	
+	"""
+	fromStringtoBits(s)
+	
+	convert a hexadecimal string to an Array{Bool, 1}
+	# Arguments
+	 * s: a string
+
+	# Output
+	 * value: type : Array{Bool, 1}
+
+	# Examples
+	```julia-repl
+	julia> msg = fromStringtoBits("8787878787878787")
+	```
+	"""
+	function fromStringtoBits(s)
+		value_from_string = bitstring(parse(UInt64, s, base=16))
+		return convert(Array{Bool}, split(value_from_string, "") .== "1")
+	end
+
+	"""
+	randomUInt64toBits()
+	
+	generate a random Array{Bool, 1}
+
+	#Output
+	 * value: type : Array{Bool, 1}
+
+	# Examples
+	```julia-repl
+	julia> msg = randomUInt64toBits()
+	```
+	"""
+	function randomUInt64toBits()
+		value = bitstring(rand(UInt64))
+		return convert(Array{Bool}, split(value, "") .== "1")
+	end
+
+	"""
+    compute(msg, key)
+
+	Compute the DES for msg with key. 
+
+	# Arguments
+	 * msg: the plaintext to encrypt, type : Array{Bool, 1}
+	 * key: the key used for encryption, type : Array{Bool, 1} 
+
+	#Output
+	 * cipher: result of the DES, , type : Array{Bool, 1}
+
+	# Examples
+	```julia-repl
+	julia> msg = fromStringtoBits("8787878787878787")
+    julia> key = fromStringtoBits("0e329232ea6d0d73")
+    julia> out = compute(msg, key)
+	julia> out == fromStringtoBits("0000000000000000")
+	true
+	```
+	"""
+	function compute(msg::Array{Bool,1}, key::Array{Bool,1})
         #initial permutation
         IP = msg[IPbits]
         # round 1
