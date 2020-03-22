@@ -15,3 +15,5 @@ BenchmarkTools
 * maximum time:     36.937 ms (99.59% GC)
 * samples:          10000
 * evals/sample:     1
+
+Set as master
