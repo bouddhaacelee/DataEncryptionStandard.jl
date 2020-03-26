@@ -10,5 +10,5 @@ function compute_ntimes(ntimes)
     end
 end
 
-@profview compute_ntimes(1)  # run once to trigger compilation (ignore this one)
+@profview compute_ntimes(2)  # run once to trigger compilation (ignore this one)
 @profview compute_ntimes(1000000)
