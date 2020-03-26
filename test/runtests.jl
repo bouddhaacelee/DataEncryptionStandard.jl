@@ -1,7 +1,7 @@
 using DataEncryptionStandard
 using Test
 
-@testset "DataEncryptionStandard.jel" begin
+@testset "DataEncryptionStandard.jl" begin
     # Write your own tests here.
     #= cast
     key:       0e329232ea6d0d73
