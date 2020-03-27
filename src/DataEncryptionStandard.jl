@@ -44,11 +44,9 @@ module DataEncryptionStandard
 	end
 
 	function Cast_SBOX_IN(d::BitArray)
-		array = [0, 0, 0, 0, 0, 0, 0, 0]
+		array = [1, 1, 1, 1, 1, 1, 1, 1]
 		
-		ret::UInt64 = 0
-		ret <<= 1
-		ret |= d[1]
+		ret::UInt64 = d[1]
 		ret <<= 1
 		ret |= d[2]
 		ret <<= 1
@@ -59,10 +57,8 @@ module DataEncryptionStandard
 		ret |= d[5]
 		ret <<= 1
 		ret |= d[6]
-		array[1] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[7]
+		array[1] += ret
+		ret = d[7]
 		ret <<= 1
 		ret |= d[8]
 		ret <<= 1
@@ -73,10 +69,8 @@ module DataEncryptionStandard
 		ret |= d[11]
 		ret <<= 1
 		ret |= d[12]
-		array[2] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[13]
+		array[2] += ret 
+		ret = d[13]
 		ret <<= 1
 		ret |= d[14]
 		ret <<= 1
@@ -87,10 +81,8 @@ module DataEncryptionStandard
 		ret |= d[17]
 		ret <<= 1
 		ret |= d[18]
-		array[3] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[19]
+		array[3] += ret
+		ret = d[19]
 		ret <<= 1
 		ret |= d[20]
 		ret <<= 1
@@ -101,10 +93,8 @@ module DataEncryptionStandard
 		ret |= d[23]
 		ret <<= 1
 		ret |= d[24]
-		array[4] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[25]
+		array[4] += ret
+		ret = d[25]
 		ret <<= 1
 		ret |= d[26]
 		ret <<= 1
@@ -115,10 +105,8 @@ module DataEncryptionStandard
 		ret |= d[29]
 		ret <<= 1
 		ret |= d[30]
-		array[5] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[31]
+		array[5] += ret
+		ret = d[31]
 		ret <<= 1
 		ret |= d[32]
 		ret <<= 1
@@ -129,10 +117,8 @@ module DataEncryptionStandard
 		ret |= d[35]
 		ret <<= 1
 		ret |= d[36]
-		array[6] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[37]
+		array[6] += ret
+		ret = d[37]
 		ret <<= 1
 		ret |= d[38]
 		ret <<= 1
@@ -143,10 +129,8 @@ module DataEncryptionStandard
 		ret |= d[41]
 		ret <<= 1
 		ret |= d[42]
-		array[7] = ret +1
-		ret = 0
-		ret <<= 1
-		ret |= d[43]
+		array[7] += ret
+		ret = d[43]
 		ret <<= 1
 		ret |= d[44]
 		ret <<= 1
@@ -157,7 +141,7 @@ module DataEncryptionStandard
 		ret |= d[47]
 		ret <<= 1
 		ret |= d[48]
-		array[8] = ret +1
+		array[8] += ret
 
 		return array
 	end
