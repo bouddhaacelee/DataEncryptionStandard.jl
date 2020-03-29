@@ -12,28 +12,28 @@ This package provides three functions :
 * compute
 
 ### fromStringtoBits(s)
-Convert a hexadecimal string to an Array{Bool, 1}
+Convert a hexadecimal string to an BitArray
 #### Arguments
 * s: a string
 #### Output
-* value: type : Array{Bool, 1}
+* value: type : BitArray
 #### Examples
 julia> msg = fromStringtoBits("8787878787878787")
 
 ### randomUInt64toBits()
-Generate a random Array{Bool, 1}
+Generate a random BitArray
 #### Output
-* value: type : Array{Bool, 1}
+* value: type : BitArray
 #### Examples
 julia> msg = randomUInt64toBits()
 
 ### compute(msg, key)
 Compute the DES for msg with key. 
 #### Arguments
-* msg: the plaintext to encrypt, type : Array{Bool, 1}
-* key: the key used for encryption, type : Array{Bool, 1} 
+* msg: the plaintext to encrypt, type : BitArray
+* key: the key used for encryption, type : BitArray
 #### Output
-* cipher: result of the DES, , type : Array{Bool, 1}
+* cipher: result of the DES, , type : BitArray
 #### Examples
 julia> msg = fromStringtoBits("8787878787878787")
 
