@@ -4,11 +4,11 @@ compute(msg, key)
 Compute the DES for msg with key. 
 
 # Arguments
-    * msg: the plaintext to encrypt, type : Array{Bool, 1}
-    * key: the key used for encryption, type : Array{Bool, 1} 
+    * msg: the plaintext to encrypt, type : BitArray
+    * key: the key used for encryption, type : BitArray 
 
 #Output
-    * cipher: result of the DES, , type : Array{Bool, 1}
+    * cipher: result of the DES, , type : BitArray
 
 # Examples
 ```julia-repl
@@ -23,6 +23,7 @@ function compute(msg::BitArray, key::BitArray)
     SBOX_OUT = BitArray(undef, 32, 1)
     # round 1
     R_1 = msg[IPbits_R]
+    println(key[SUB_KEY_1_P])
     a = Cast_SBOX_IN(R_1[EXP] .⊻ key[SUB_KEY_1_P] )
     SBOX_OUT[1:4] = SBOX_1[a[1]]
     SBOX_OUT[5:8] = SBOX_2[a[2]]
