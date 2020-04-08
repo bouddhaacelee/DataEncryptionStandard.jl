@@ -23,7 +23,6 @@ function compute(msg::BitArray, key::BitArray)
     SBOX_OUT = BitArray(undef, 32, 1)
     # round 1
     R_1 = msg[IPbits_R]
-    println(key[SUB_KEY_1_P])
     a = Cast_SBOX_IN(R_1[EXP] .⊻ key[SUB_KEY_1_P] )
     SBOX_OUT[1:4] = SBOX_1[a[1]]
     SBOX_OUT[5:8] = SBOX_2[a[2]]
