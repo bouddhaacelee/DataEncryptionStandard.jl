@@ -32,3 +32,18 @@ BenchmarkTools
 * maximum time:     4.330 ms (98.51% GC)
 * samples:          10000
 * evals/sample:     1
+
+## Add compute_many
+|Test Summary:             | Pass | Total|
+|--------------------------|------|------|  
+|DataEncryptionStandard.jl |   38 |    38|
+
+BenchmarkTools for 100000 DES
+* memory estimate:  290.30 MiB
+* allocs estimate:  6901
+* minimum time:     1.317 s (0.24% GC)
+* median time:      1.410 s (4.55% GC)
+* mean time:        1.389 s (4.55% GC)
+* maximum time:     1.421 s (8.53% GC)
+* samples:          4
+* evals/sample:     1

@@ -6,10 +6,11 @@ This code is a Julia package implementing this algorithm.
 
 ## Features
 
-This package provides three functions : 
+This package provides four functions : 
 * fromStringtoBits
 * randomUInt64toBits
 * compute
+* compute many
 
 ### fromStringtoBits(s)
 Convert a hexadecimal string to an BitArray
@@ -45,4 +46,12 @@ julia> out == fromStringtoBits("0000000000000000")
 
 true
 
-	
+### compute_many(msg, key)
+Compute the DES for many msg with many key. 
+#### Arguments
+* msg: plaintexts to encrypt, type : BitArray
+* key: keys used for encryption, type : BitArray
+#### Output
+* intermediate_values: a dict with the following form -> Dict{String, BitArray}()
+The keys are : SUB_KEY, L_&_R, EXP_R, SBOX_IN, SBOX_OUT, FP_IN, CIPHER
+
