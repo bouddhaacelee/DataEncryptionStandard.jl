@@ -1,3 +1,5 @@
+include("sboxes.jl")
+
 """
 compute(msg, key)
 
@@ -20,6 +22,7 @@ true
 ```
 """
 function compute(msg::BitArray, key::BitArray)
+    
     SBOX_OUT = BitArray(undef, 32, 1)
     # round 1
     R_1 = msg[IPbits_R]
@@ -32,9 +35,9 @@ function compute(msg::BitArray, key::BitArray)
     SBOX_OUT[21:24] = SBOX_6[a[6]]
     SBOX_OUT[25:28] = SBOX_7[a[7]]
     SBOX_OUT[29:32] = SBOX_8[a[8]]
-
     # round 2
     R_2 = SBOX_OUT[P] .⊻ msg[IPbits_L]
+    
     a = Cast_SBOX_IN(R_2[EXP] .⊻ key[SUB_KEY_2_P])
     SBOX_OUT[1:4] = SBOX_1[a[1]]
     SBOX_OUT[5:8] = SBOX_2[a[2]]

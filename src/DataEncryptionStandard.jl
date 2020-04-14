@@ -2,7 +2,7 @@ module DataEncryptionStandard
 	
 	include("utils.jl")
 
-    include("sboxes.jl")
+
 	include("permutations.jl")
 	include("simple.jl")
 	include("many.jl")
